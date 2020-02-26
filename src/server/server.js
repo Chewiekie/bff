@@ -18,6 +18,7 @@ import reducer from '../frontend/reducers';
 import Layout from '../frontend/components/Layout';
 import serverRoutes from '../frontend/routes/serverRoutes';
 import getManifest from './getManifest';
+import path from 'path';
 
 dotenv.config();
 
