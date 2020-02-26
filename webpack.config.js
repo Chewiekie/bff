@@ -18,7 +18,7 @@ module.exports = {
   entry,
   output: {
     path: isDev ? '/' : path.resolve(__dirname, 'src/server/public'),
-    filename: isDev ? 'assets/app.js' : 'assets/app-[hash].js',
+    filename: isDev ? 'public/app.js' : 'public/app-[hash].js',
     "publicPath": '/',
   },
   resolve: {
@@ -49,7 +49,7 @@ module.exports = {
           {
             'loader': 'file-loader',
             options: {
-              name: 'assets/[hash].[ext]',
+              name: 'public/[hash].[ext]',
             },
           },
         ]
@@ -62,7 +62,7 @@ module.exports = {
   plugins: [
     isDev ? new webpack.HotModuleReplacementPlugin() : () => { },
     new MiniCssExtractPlugin({
-      filename: isDev ? 'assets/app.css' : 'assets/app-[hash].css',
+      filename: isDev ? 'public/app.css' : 'public/app-[hash].css',
     }),
     isDev ? () => { } :
       new CompressionPlugin({
