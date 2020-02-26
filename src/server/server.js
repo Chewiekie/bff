@@ -64,6 +64,7 @@ const setResponse = (html, preloadedState, manifest) => {
           <meta charset="utf-8" />
           <link rel="stylesheet" href="${mainStyles}" type="text/css"/>
           <title>Platfix</title>
+          <base href="/">
         </head>
         <body>
           <div id="app">${html}</div>
