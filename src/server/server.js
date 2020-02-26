@@ -18,7 +18,8 @@ import reducer from '../frontend/reducers';
 import Layout from '../frontend/components/Layout';
 import serverRoutes from '../frontend/routes/serverRoutes';
 import getManifest from './getManifest';
-import path from 'path';
+
+const path = require('path');
 
 dotenv.config();
 
@@ -29,7 +30,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, "public")));
+app.use('/assets', express.static(path.join(__dirname, "../assets")));
+
 
 require('./utils/auth/strategies/basic');
 
@@ -52,8 +54,8 @@ if (ENV === 'development') {
 }
 
 const setResponse = (html, preloadedState, manifest) => {
-  const mainStyles = manifest ? manifest['main.css'] : '/public/app.css';
-  const mainBuild = manifest ? manifest['main.js'] : '/public/app.js';
+  const mainStyles = manifest ? manifest['main.css'] : '/assets/app.css';
+  const mainBuild = manifest ? manifest['main.js'] : '/assets/app.js';
   return (
     `
       <!DOCTYPE html>
